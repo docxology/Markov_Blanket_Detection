@@ -1,0 +1,34 @@
+================================================================================
+DMBD TEST SUITE SUMMARY REPORT
+================================================================================
+Execution time: 42.48 seconds
+
+STANDARD TESTS:
+----------------------------------------
+Total tests: 32
+Errors: 3
+Failures: 10
+Skipped: 0
+Success: False
+
+SYNTHETIC DATASETS:
+----------------------------------------
+small_static: 100 samples x 5 variables
+medium_static: 500 samples x 10 variables
+small_temporal: 250 samples x 6 variables
+medium_temporal: 1000 samples x 9 variables
+high_density: 200 samples x 8 variables
+low_density: 200 samples x 8 variables
+
+TEST CATEGORIES:
+----------------------------------------
+detailed_markov_blanket: 0 test cases
+detailed_dynamic_markov_blanket: 12 test cases
+cognitive_identification: 27 test cases
+dmbd_analyzer: 0 test cases
+tensor_conversion: 2 test cases
+examples: 0 test cases
+
+VISUALIZATIONS:
+----------------------------------------
+Total visualizations: 0

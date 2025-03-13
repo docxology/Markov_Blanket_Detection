@@ -1,0 +1,443 @@
+2025-03-13 13:46:56,044 - DMBD-TestRunner - INFO - DMBD Test Runner initialized
+2025-03-13 13:46:56,044 - DMBD-TestRunner - INFO - PyTorch version: 2.1.0+cpu
+2025-03-13 13:46:56,044 - DMBD-TestRunner - INFO - CUDA available: False
+2025-03-13 13:46:56,044 - DMBD-TestRunner - INFO - Starting comprehensive test suite...
+2025-03-13 13:46:56,045 - DMBD-TestRunner - INFO - Generating synthetic datasets for testing...
+2025-03-13 13:46:56,065 - DMBD-TestRunner - INFO - Dataset 'small_static' saved to output/data/small_static.csv
+2025-03-13 13:46:56,066 - DMBD-TestRunner - INFO - Dataset 'small_static' converted to tensor of shape torch.Size([100, 5])
+2025-03-13 13:46:56,077 - DMBD-TestRunner - INFO - Dataset 'medium_static' saved to output/data/medium_static.csv
+2025-03-13 13:46:56,079 - DMBD-TestRunner - INFO - Dataset 'medium_static' converted to tensor of shape torch.Size([500, 10])
+2025-03-13 13:46:56,085 - DMBD-TestRunner - INFO - Dataset 'small_temporal' saved to output/data/small_temporal.csv
+2025-03-13 13:46:56,086 - DMBD-TestRunner - INFO - Dataset 'small_temporal' converted to tensor of shape torch.Size([250, 5])
+2025-03-13 13:46:56,099 - DMBD-TestRunner - INFO - Dataset 'medium_temporal' saved to output/data/medium_temporal.csv
+2025-03-13 13:46:56,101 - DMBD-TestRunner - INFO - Dataset 'medium_temporal' converted to tensor of shape torch.Size([1000, 8])
+2025-03-13 13:46:56,106 - DMBD-TestRunner - INFO - Dataset 'high_density' saved to output/data/high_density.csv
+2025-03-13 13:46:56,106 - DMBD-TestRunner - INFO - Dataset 'high_density' converted to tensor of shape torch.Size([200, 8])
+2025-03-13 13:46:56,110 - DMBD-TestRunner - INFO - Dataset 'low_density' saved to output/data/low_density.csv
+2025-03-13 13:46:56,110 - DMBD-TestRunner - INFO - Dataset 'low_density' converted to tensor of shape torch.Size([200, 8])
+2025-03-13 13:46:56,110 - DMBD-TestRunner - INFO - Running standard unittest test suite...
+2025-03-13 13:46:59,759 - DMBD-TestRunner - INFO - Tests run: 32
+2025-03-13 13:46:59,759 - DMBD-TestRunner - INFO - Errors: 3
+2025-03-13 13:46:59,759 - DMBD-TestRunner - INFO - Failures: 10
+2025-03-13 13:46:59,759 - DMBD-TestRunner - INFO - Skipped: 0
+2025-03-13 13:46:59,760 - DMBD-TestRunner - INFO - Running detailed MarkovBlanket tests with visualizations...
+2025-03-13 13:46:59,760 - DMBD-TestRunner - INFO - Testing MarkovBlanket with dataset 'small_static'...
+2025-03-13 13:46:59,760 - DMBD-TestRunner - INFO -   Testing target node 0...
+2025-03-13 13:46:59,780 - DMBD-TestRunner - INFO -   Target 0 - Parents: []
+2025-03-13 13:46:59,780 - DMBD-TestRunner - INFO -   Target 0 - Children: [3, 4]
+2025-03-13 13:46:59,780 - DMBD-TestRunner - INFO -   Target 0 - Spouses: [2]
+2025-03-13 13:46:59,871 - DMBD-TestRunner - ERROR - Error in detailed MarkovBlanket tests: 'spouses'
+2025-03-13 13:46:59,872 - DMBD-TestRunner - ERROR - Traceback (most recent call last):
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/run_tests.py", line 187, in run_detailed_markov_blanket_tests
+    fig = visualizer.plot_markov_blanket(mb, target_idx)
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/framework/visualization.py", line 108, in plot_markov_blanket
+    node_colors = [self.colors[G.nodes[n]['category']] for n in G.nodes()]
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/framework/visualization.py", line 108, in <listcomp>
+    node_colors = [self.colors[G.nodes[n]['category']] for n in G.nodes()]
+KeyError: 'spouses'
+
+2025-03-13 13:46:59,873 - DMBD-TestRunner - INFO - Running detailed DynamicMarkovBlanket tests with visualizations...
+2025-03-13 13:46:59,873 - DMBD-TestRunner - INFO - Testing DynamicMarkovBlanket with dataset 'small_temporal'...
+2025-03-13 13:46:59,887 - DMBD-TestRunner - INFO -   Testing target node 0...
+2025-03-13 13:46:59,887 - DMBD-TestRunner - INFO -     Testing with current_only=False...
+2025-03-13 13:46:59,899 - DMBD-TestRunner - INFO -     Dynamic components: dict_keys(['current', 'lag_1'])
+2025-03-13 13:46:59,899 - DMBD-TestRunner - INFO -     Time current - Parents: []
+2025-03-13 13:46:59,899 - DMBD-TestRunner - INFO -     Time current - Children: [4]
+2025-03-13 13:46:59,900 - DMBD-TestRunner - INFO -     Time current - Spouses: [3]
+2025-03-13 13:46:59,900 - DMBD-TestRunner - INFO -     Time lag_1 - Parents: []
+2025-03-13 13:46:59,900 - DMBD-TestRunner - INFO -     Time lag_1 - Children: []
+2025-03-13 13:46:59,900 - DMBD-TestRunner - INFO -     Time lag_1 - Spouses: []
+2025-03-13 13:47:01,035 - DMBD-TestRunner - INFO -     Temporal dynamics visualization saved to output/figures/small_temporal_target0_full_dynamics.png
+2025-03-13 13:47:01,035 - DMBD-TestRunner - INFO -     Testing with current_only=True...
+2025-03-13 13:47:01,046 - DMBD-TestRunner - INFO -     Dynamic components: dict_keys(['current', 'lag_1'])
+2025-03-13 13:47:01,046 - DMBD-TestRunner - INFO -     Time current - Parents: []
+2025-03-13 13:47:01,046 - DMBD-TestRunner - INFO -     Time current - Children: [4]
+2025-03-13 13:47:01,046 - DMBD-TestRunner - INFO -     Time current - Spouses: [3]
+2025-03-13 13:47:01,046 - DMBD-TestRunner - INFO -     Time lag_1 - Parents: []
+2025-03-13 13:47:01,046 - DMBD-TestRunner - INFO -     Time lag_1 - Children: []
+2025-03-13 13:47:01,046 - DMBD-TestRunner - INFO -     Time lag_1 - Spouses: []
+2025-03-13 13:47:01,962 - DMBD-TestRunner - INFO -     Temporal dynamics visualization saved to output/figures/small_temporal_target0_current_only_dynamics.png
+2025-03-13 13:47:01,962 - DMBD-TestRunner - INFO -   Testing target node 1...
+2025-03-13 13:47:01,963 - DMBD-TestRunner - INFO -     Testing with current_only=False...
+2025-03-13 13:47:01,964 - DMBD-TestRunner - INFO -     Dynamic components: dict_keys(['current', 'lag_1'])
+2025-03-13 13:47:01,964 - DMBD-TestRunner - INFO -     Time current - Parents: []
+2025-03-13 13:47:01,964 - DMBD-TestRunner - INFO -     Time current - Children: []
+2025-03-13 13:47:01,964 - DMBD-TestRunner - INFO -     Time current - Spouses: []
+2025-03-13 13:47:01,964 - DMBD-TestRunner - INFO -     Time lag_1 - Parents: []
+2025-03-13 13:47:01,964 - DMBD-TestRunner - INFO -     Time lag_1 - Children: []
+2025-03-13 13:47:01,964 - DMBD-TestRunner - INFO -     Time lag_1 - Spouses: []
+2025-03-13 13:47:02,881 - DMBD-TestRunner - INFO -     Temporal dynamics visualization saved to output/figures/small_temporal_target1_full_dynamics.png
+2025-03-13 13:47:02,882 - DMBD-TestRunner - INFO -     Testing with current_only=True...
+2025-03-13 13:47:02,885 - DMBD-TestRunner - INFO -     Dynamic components: dict_keys(['current', 'lag_1'])
+2025-03-13 13:47:02,885 - DMBD-TestRunner - INFO -     Time current - Parents: []
+2025-03-13 13:47:02,885 - DMBD-TestRunner - INFO -     Time current - Children: []
+2025-03-13 13:47:02,885 - DMBD-TestRunner - INFO -     Time current - Spouses: []
+2025-03-13 13:47:02,885 - DMBD-TestRunner - INFO -     Time lag_1 - Parents: []
+2025-03-13 13:47:02,885 - DMBD-TestRunner - INFO -     Time lag_1 - Children: []
+2025-03-13 13:47:02,885 - DMBD-TestRunner - INFO -     Time lag_1 - Spouses: []
+2025-03-13 13:47:03,641 - DMBD-TestRunner - INFO -     Temporal dynamics visualization saved to output/figures/small_temporal_target1_current_only_dynamics.png
+2025-03-13 13:47:03,642 - DMBD-TestRunner - INFO -   Testing target node 2...
+2025-03-13 13:47:03,642 - DMBD-TestRunner - INFO -     Testing with current_only=False...
+2025-03-13 13:47:03,653 - DMBD-TestRunner - INFO -     Dynamic components: dict_keys(['current', 'lag_1'])
+2025-03-13 13:47:03,653 - DMBD-TestRunner - INFO -     Time current - Parents: [3]
+2025-03-13 13:47:03,654 - DMBD-TestRunner - INFO -     Time current - Children: [4]
+2025-03-13 13:47:03,654 - DMBD-TestRunner - INFO -     Time current - Spouses: []
+2025-03-13 13:47:03,654 - DMBD-TestRunner - INFO -     Time lag_1 - Parents: []
+2025-03-13 13:47:03,654 - DMBD-TestRunner - INFO -     Time lag_1 - Children: []
+2025-03-13 13:47:03,654 - DMBD-TestRunner - INFO -     Time lag_1 - Spouses: []
+2025-03-13 13:47:04,535 - DMBD-TestRunner - INFO -     Temporal dynamics visualization saved to output/figures/small_temporal_target2_full_dynamics.png
+2025-03-13 13:47:04,535 - DMBD-TestRunner - INFO -     Testing with current_only=True...
+2025-03-13 13:47:04,547 - DMBD-TestRunner - INFO -     Dynamic components: dict_keys(['current', 'lag_1'])
+2025-03-13 13:47:04,547 - DMBD-TestRunner - INFO -     Time current - Parents: [3]
+2025-03-13 13:47:04,547 - DMBD-TestRunner - INFO -     Time current - Children: [4]
+2025-03-13 13:47:04,548 - DMBD-TestRunner - INFO -     Time current - Spouses: []
+2025-03-13 13:47:04,548 - DMBD-TestRunner - INFO -     Time lag_1 - Parents: []
+2025-03-13 13:47:04,548 - DMBD-TestRunner - INFO -     Time lag_1 - Children: []
+2025-03-13 13:47:04,548 - DMBD-TestRunner - INFO -     Time lag_1 - Spouses: []
+2025-03-13 13:47:05,493 - DMBD-TestRunner - INFO -     Temporal dynamics visualization saved to output/figures/small_temporal_target2_current_only_dynamics.png
+2025-03-13 13:47:05,494 - DMBD-TestRunner - INFO - Testing DynamicMarkovBlanket with dataset 'medium_temporal'...
+2025-03-13 13:47:05,505 - DMBD-TestRunner - INFO -   Testing target node 0...
+2025-03-13 13:47:05,505 - DMBD-TestRunner - INFO -     Testing with current_only=False...
+2025-03-13 13:47:05,548 - DMBD-TestRunner - INFO -     Dynamic components: dict_keys(['current', 'lag_1'])
+2025-03-13 13:47:05,548 - DMBD-TestRunner - INFO -     Time current - Parents: [5]
+2025-03-13 13:47:05,548 - DMBD-TestRunner - INFO -     Time current - Children: [4, 6]
+2025-03-13 13:47:05,548 - DMBD-TestRunner - INFO -     Time current - Spouses: [2, 3, 7]
+2025-03-13 13:47:05,548 - DMBD-TestRunner - INFO -     Time lag_1 - Parents: []
+2025-03-13 13:47:05,548 - DMBD-TestRunner - INFO -     Time lag_1 - Children: []
+2025-03-13 13:47:05,548 - DMBD-TestRunner - INFO -     Time lag_1 - Spouses: []
+2025-03-13 13:47:06,500 - DMBD-TestRunner - INFO -     Temporal dynamics visualization saved to output/figures/medium_temporal_target0_full_dynamics.png
+2025-03-13 13:47:06,501 - DMBD-TestRunner - INFO -     Testing with current_only=True...
+2025-03-13 13:47:06,546 - DMBD-TestRunner - INFO -     Dynamic components: dict_keys(['current', 'lag_1'])
+2025-03-13 13:47:06,546 - DMBD-TestRunner - INFO -     Time current - Parents: [5]
+2025-03-13 13:47:06,546 - DMBD-TestRunner - INFO -     Time current - Children: [4, 6]
+2025-03-13 13:47:06,546 - DMBD-TestRunner - INFO -     Time current - Spouses: [2, 3, 7]
+2025-03-13 13:47:06,546 - DMBD-TestRunner - INFO -     Time lag_1 - Parents: []
+2025-03-13 13:47:06,546 - DMBD-TestRunner - INFO -     Time lag_1 - Children: []
+2025-03-13 13:47:06,546 - DMBD-TestRunner - INFO -     Time lag_1 - Spouses: []
+2025-03-13 13:47:07,529 - DMBD-TestRunner - INFO -     Temporal dynamics visualization saved to output/figures/medium_temporal_target0_current_only_dynamics.png
+2025-03-13 13:47:07,529 - DMBD-TestRunner - INFO -   Testing target node 1...
+2025-03-13 13:47:07,529 - DMBD-TestRunner - INFO -     Testing with current_only=False...
+2025-03-13 13:47:07,572 - DMBD-TestRunner - INFO -     Dynamic components: dict_keys(['current', 'lag_1'])
+2025-03-13 13:47:07,573 - DMBD-TestRunner - INFO -     Time current - Parents: []
+2025-03-13 13:47:07,573 - DMBD-TestRunner - INFO -     Time current - Children: [3, 6]
+2025-03-13 13:47:07,573 - DMBD-TestRunner - INFO -     Time current - Spouses: [2, 7]
+2025-03-13 13:47:07,573 - DMBD-TestRunner - INFO -     Time lag_1 - Parents: []
+2025-03-13 13:47:07,573 - DMBD-TestRunner - INFO -     Time lag_1 - Children: []
+2025-03-13 13:47:07,573 - DMBD-TestRunner - INFO -     Time lag_1 - Spouses: []
+2025-03-13 13:47:08,505 - DMBD-TestRunner - INFO -     Temporal dynamics visualization saved to output/figures/medium_temporal_target1_full_dynamics.png
+2025-03-13 13:47:08,505 - DMBD-TestRunner - INFO -     Testing with current_only=True...
+2025-03-13 13:47:08,552 - DMBD-TestRunner - INFO -     Dynamic components: dict_keys(['current', 'lag_1'])
+2025-03-13 13:47:08,553 - DMBD-TestRunner - INFO -     Time current - Parents: []
+2025-03-13 13:47:08,553 - DMBD-TestRunner - INFO -     Time current - Children: [3, 6]
+2025-03-13 13:47:08,553 - DMBD-TestRunner - INFO -     Time current - Spouses: [2, 7]
+2025-03-13 13:47:08,553 - DMBD-TestRunner - INFO -     Time lag_1 - Parents: []
+2025-03-13 13:47:08,553 - DMBD-TestRunner - INFO -     Time lag_1 - Children: []
+2025-03-13 13:47:08,553 - DMBD-TestRunner - INFO -     Time lag_1 - Spouses: []
+2025-03-13 13:47:09,474 - DMBD-TestRunner - INFO -     Temporal dynamics visualization saved to output/figures/medium_temporal_target1_current_only_dynamics.png
+2025-03-13 13:47:09,474 - DMBD-TestRunner - INFO -   Testing target node 3...
+2025-03-13 13:47:09,474 - DMBD-TestRunner - INFO -     Testing with current_only=False...
+2025-03-13 13:47:09,557 - DMBD-TestRunner - INFO -     Dynamic components: dict_keys(['current', 'lag_1'])
+2025-03-13 13:47:09,557 - DMBD-TestRunner - INFO -     Time current - Parents: [5, 6]
+2025-03-13 13:47:09,557 - DMBD-TestRunner - INFO -     Time current - Children: [1, 2, 7]
+2025-03-13 13:47:09,557 - DMBD-TestRunner - INFO -     Time current - Spouses: []
+2025-03-13 13:47:09,557 - DMBD-TestRunner - INFO -     Time lag_1 - Parents: []
+2025-03-13 13:47:09,557 - DMBD-TestRunner - INFO -     Time lag_1 - Children: []
+2025-03-13 13:47:09,557 - DMBD-TestRunner - INFO -     Time lag_1 - Spouses: []
+2025-03-13 13:47:10,534 - DMBD-TestRunner - INFO -     Temporal dynamics visualization saved to output/figures/medium_temporal_target3_full_dynamics.png
+2025-03-13 13:47:10,535 - DMBD-TestRunner - INFO -     Testing with current_only=True...
+2025-03-13 13:47:10,610 - DMBD-TestRunner - INFO -     Dynamic components: dict_keys(['current', 'lag_1'])
+2025-03-13 13:47:10,611 - DMBD-TestRunner - INFO -     Time current - Parents: [5, 6]
+2025-03-13 13:47:10,611 - DMBD-TestRunner - INFO -     Time current - Children: [1, 2, 7]
+2025-03-13 13:47:10,611 - DMBD-TestRunner - INFO -     Time current - Spouses: []
+2025-03-13 13:47:10,611 - DMBD-TestRunner - INFO -     Time lag_1 - Parents: []
+2025-03-13 13:47:10,611 - DMBD-TestRunner - INFO -     Time lag_1 - Children: []
+2025-03-13 13:47:10,611 - DMBD-TestRunner - INFO -     Time lag_1 - Spouses: []
+2025-03-13 13:47:11,661 - DMBD-TestRunner - INFO -     Temporal dynamics visualization saved to output/figures/medium_temporal_target3_current_only_dynamics.png
+2025-03-13 13:47:11,661 - DMBD-TestRunner - INFO - Running CognitiveIdentification tests with visualizations...
+2025-03-13 13:47:11,661 - DMBD-TestRunner - INFO - Testing CognitiveIdentification with dataset 'medium_static'...
+2025-03-13 13:47:11,662 - DMBD-TestRunner - INFO -   Testing target node 0...
+2025-03-13 13:47:11,662 - DMBD-TestRunner - INFO -     Testing with threshold=0.0...
+2025-03-13 13:47:11,777 - DMBD-TestRunner - INFO -     Sensory nodes: [6, 8, 9]
+2025-03-13 13:47:11,778 - DMBD-TestRunner - INFO -     Action nodes: [4, 5, 7]
+2025-03-13 13:47:11,778 - DMBD-TestRunner - INFO -     Internal state nodes: [1, 3]
+2025-03-13 13:47:11,786 - DMBD-TestRunner - INFO -     Cognitive capacity: 0.0814454654933235
+2025-03-13 13:47:11,786 - DMBD-TestRunner - INFO -     Integration: 12.73408279785469
+2025-03-13 13:47:11,786 - DMBD-TestRunner - INFO -     Complexity: 1.0371333011017985
+2025-03-13 13:47:13,318 - DMBD-TestRunner - INFO -     Cognitive structures visualization saved to output/figures/medium_static_target0_thresh0.0_cognitive.png
+2025-03-13 13:47:13,319 - DMBD-TestRunner - INFO -     Testing with threshold=0.1...
+2025-03-13 13:47:13,434 - DMBD-TestRunner - INFO -     Sensory nodes: [6, 8, 9]
+2025-03-13 13:47:13,435 - DMBD-TestRunner - INFO -     Action nodes: [4, 5, 7]
+2025-03-13 13:47:13,435 - DMBD-TestRunner - INFO -     Internal state nodes: [1, 3]
+2025-03-13 13:47:13,445 - DMBD-TestRunner - INFO -     Cognitive capacity: 0.0814454654933235
+2025-03-13 13:47:13,445 - DMBD-TestRunner - INFO -     Integration: 12.73408279785469
+2025-03-13 13:47:13,445 - DMBD-TestRunner - INFO -     Complexity: 1.0371333011017985
+2025-03-13 13:47:14,617 - DMBD-TestRunner - INFO -     Cognitive structures visualization saved to output/figures/medium_static_target0_thresh0.1_cognitive.png
+2025-03-13 13:47:14,618 - DMBD-TestRunner - INFO -     Testing with threshold=0.3...
+2025-03-13 13:47:14,733 - DMBD-TestRunner - INFO -     Sensory nodes: [6, 8, 9]
+2025-03-13 13:47:14,733 - DMBD-TestRunner - INFO -     Action nodes: [4, 5, 7]
+2025-03-13 13:47:14,733 - DMBD-TestRunner - INFO -     Internal state nodes: [1, 3]
+2025-03-13 13:47:14,739 - DMBD-TestRunner - INFO -     Cognitive capacity: 0.0814454654933235
+2025-03-13 13:47:14,740 - DMBD-TestRunner - INFO -     Integration: 12.73408279785469
+2025-03-13 13:47:14,740 - DMBD-TestRunner - INFO -     Complexity: 1.0371333011017985
+2025-03-13 13:47:15,816 - DMBD-TestRunner - INFO -     Cognitive structures visualization saved to output/figures/medium_static_target0_thresh0.3_cognitive.png
+2025-03-13 13:47:15,817 - DMBD-TestRunner - INFO -   Testing target node 1...
+2025-03-13 13:47:15,817 - DMBD-TestRunner - INFO -     Testing with threshold=0.0...
+2025-03-13 13:47:15,871 - DMBD-TestRunner - INFO -     Sensory nodes: [4, 5, 6, 7, 8, 9]
+2025-03-13 13:47:15,871 - DMBD-TestRunner - INFO -     Action nodes: [3]
+2025-03-13 13:47:15,871 - DMBD-TestRunner - INFO -     Internal state nodes: []
+2025-03-13 13:47:15,871 - DMBD-TestRunner - INFO -     Cognitive capacity: 0.0
+2025-03-13 13:47:15,871 - DMBD-TestRunner - INFO -     Integration: 0.0
+2025-03-13 13:47:15,871 - DMBD-TestRunner - INFO -     Complexity: 0.0
+2025-03-13 13:47:16,755 - DMBD-TestRunner - INFO -     Cognitive structures visualization saved to output/figures/medium_static_target1_thresh0.0_cognitive.png
+2025-03-13 13:47:16,756 - DMBD-TestRunner - INFO -     Testing with threshold=0.1...
+2025-03-13 13:47:16,809 - DMBD-TestRunner - INFO -     Sensory nodes: [4, 5, 6, 7, 8, 9]
+2025-03-13 13:47:16,809 - DMBD-TestRunner - INFO -     Action nodes: [3]
+2025-03-13 13:47:16,809 - DMBD-TestRunner - INFO -     Internal state nodes: []
+2025-03-13 13:47:16,809 - DMBD-TestRunner - INFO -     Cognitive capacity: 0.0
+2025-03-13 13:47:16,809 - DMBD-TestRunner - INFO -     Integration: 0.0
+2025-03-13 13:47:16,809 - DMBD-TestRunner - INFO -     Complexity: 0.0
+2025-03-13 13:47:17,659 - DMBD-TestRunner - INFO -     Cognitive structures visualization saved to output/figures/medium_static_target1_thresh0.1_cognitive.png
+2025-03-13 13:47:17,660 - DMBD-TestRunner - INFO -     Testing with threshold=0.3...
+2025-03-13 13:47:17,716 - DMBD-TestRunner - INFO -     Sensory nodes: [4, 5, 6, 7, 8, 9]
+2025-03-13 13:47:17,717 - DMBD-TestRunner - INFO -     Action nodes: [3]
+2025-03-13 13:47:17,717 - DMBD-TestRunner - INFO -     Internal state nodes: []
+2025-03-13 13:47:17,717 - DMBD-TestRunner - INFO -     Cognitive capacity: 0.0
+2025-03-13 13:47:17,717 - DMBD-TestRunner - INFO -     Integration: 0.0
+2025-03-13 13:47:17,717 - DMBD-TestRunner - INFO -     Complexity: 0.0
+2025-03-13 13:47:18,553 - DMBD-TestRunner - INFO -     Cognitive structures visualization saved to output/figures/medium_static_target1_thresh0.3_cognitive.png
+2025-03-13 13:47:18,554 - DMBD-TestRunner - INFO -   Testing target node 5...
+2025-03-13 13:47:18,555 - DMBD-TestRunner - INFO -     Testing with threshold=0.0...
+2025-03-13 13:47:18,776 - DMBD-TestRunner - INFO -     Sensory nodes: [1, 3]
+2025-03-13 13:47:18,776 - DMBD-TestRunner - INFO -     Action nodes: [0, 4, 6, 7, 8, 9]
+2025-03-13 13:47:18,777 - DMBD-TestRunner - INFO -     Internal state nodes: [2]
+2025-03-13 13:47:18,788 - DMBD-TestRunner - INFO -     Cognitive capacity: 0.6057421058726206
+2025-03-13 13:47:18,788 - DMBD-TestRunner - INFO -     Integration: 11.512925464970229
+2025-03-13 13:47:18,788 - DMBD-TestRunner - INFO -     Complexity: 6.973863715905585
+2025-03-13 13:47:20,291 - DMBD-TestRunner - INFO -     Cognitive structures visualization saved to output/figures/medium_static_target5_thresh0.0_cognitive.png
+2025-03-13 13:47:20,291 - DMBD-TestRunner - INFO -     Testing with threshold=0.1...
+2025-03-13 13:47:20,494 - DMBD-TestRunner - INFO -     Sensory nodes: [1, 3]
+2025-03-13 13:47:20,495 - DMBD-TestRunner - INFO -     Action nodes: [0, 4, 6, 7, 8, 9]
+2025-03-13 13:47:20,495 - DMBD-TestRunner - INFO -     Internal state nodes: [2]
+2025-03-13 13:47:20,500 - DMBD-TestRunner - INFO -     Cognitive capacity: 0.6057421058726206
+2025-03-13 13:47:20,501 - DMBD-TestRunner - INFO -     Integration: 11.512925464970229
+2025-03-13 13:47:20,501 - DMBD-TestRunner - INFO -     Complexity: 6.973863715905585
+2025-03-13 13:47:21,666 - DMBD-TestRunner - INFO -     Cognitive structures visualization saved to output/figures/medium_static_target5_thresh0.1_cognitive.png
+2025-03-13 13:47:21,666 - DMBD-TestRunner - INFO -     Testing with threshold=0.3...
+2025-03-13 13:47:21,886 - DMBD-TestRunner - INFO -     Sensory nodes: [1, 3]
+2025-03-13 13:47:21,886 - DMBD-TestRunner - INFO -     Action nodes: [0, 4, 6, 7, 8, 9]
+2025-03-13 13:47:21,886 - DMBD-TestRunner - INFO -     Internal state nodes: [2]
+2025-03-13 13:47:21,888 - DMBD-TestRunner - INFO -     Cognitive capacity: 0.6057421058726206
+2025-03-13 13:47:21,888 - DMBD-TestRunner - INFO -     Integration: 11.512925464970229
+2025-03-13 13:47:21,889 - DMBD-TestRunner - INFO -     Complexity: 6.973863715905585
+2025-03-13 13:47:23,045 - DMBD-TestRunner - INFO -     Cognitive structures visualization saved to output/figures/medium_static_target5_thresh0.3_cognitive.png
+2025-03-13 13:47:23,046 - DMBD-TestRunner - INFO - Testing CognitiveIdentification with dataset 'medium_temporal'...
+2025-03-13 13:47:23,055 - DMBD-TestRunner - INFO -   Testing target node 0...
+2025-03-13 13:47:23,055 - DMBD-TestRunner - INFO -     Testing with threshold=0.0...
+2025-03-13 13:47:23,094 - DMBD-TestRunner - INFO -     Sensory nodes: [5]
+2025-03-13 13:47:23,094 - DMBD-TestRunner - INFO -     Action nodes: [4, 6]
+2025-03-13 13:47:23,094 - DMBD-TestRunner - INFO -     Internal state nodes: [2, 3, 7]
+2025-03-13 13:47:23,102 - DMBD-TestRunner - INFO -     Cognitive capacity: 0.1697623749772417
+2025-03-13 13:47:23,102 - DMBD-TestRunner - INFO -     Integration: 11.69851538235365
+2025-03-13 13:47:23,102 - DMBD-TestRunner - INFO -     Complexity: 1.9859677550161503
+2025-03-13 13:47:24,046 - DMBD-TestRunner - INFO -     Cognitive structures visualization saved to output/figures/medium_temporal_target0_thresh0.0_cognitive.png
+2025-03-13 13:47:24,046 - DMBD-TestRunner - INFO -     Testing temporal cognitive structures...
+2025-03-13 13:47:24,087 - DMBD-TestRunner - INFO -     Time current:
+2025-03-13 13:47:24,087 - DMBD-TestRunner - INFO -       Sensory nodes: [5]
+2025-03-13 13:47:24,088 - DMBD-TestRunner - INFO -       Action nodes: [4, 6]
+2025-03-13 13:47:24,088 - DMBD-TestRunner - INFO -       Internal state nodes: [2, 3, 7]
+2025-03-13 13:47:24,088 - DMBD-TestRunner - INFO -     Time lag_1:
+2025-03-13 13:47:24,088 - DMBD-TestRunner - INFO -       Sensory nodes: []
+2025-03-13 13:47:24,088 - DMBD-TestRunner - INFO -       Action nodes: []
+2025-03-13 13:47:24,088 - DMBD-TestRunner - INFO -       Internal state nodes: []
+2025-03-13 13:47:24,088 - DMBD-TestRunner - INFO -     Testing with threshold=0.1...
+2025-03-13 13:47:24,134 - DMBD-TestRunner - INFO -     Sensory nodes: [5]
+2025-03-13 13:47:24,135 - DMBD-TestRunner - INFO -     Action nodes: [4, 6]
+2025-03-13 13:47:24,135 - DMBD-TestRunner - INFO -     Internal state nodes: [2, 3, 7]
+2025-03-13 13:47:24,142 - DMBD-TestRunner - INFO -     Cognitive capacity: 0.1697623749772417
+2025-03-13 13:47:24,142 - DMBD-TestRunner - INFO -     Integration: 11.69851538235365
+2025-03-13 13:47:24,143 - DMBD-TestRunner - INFO -     Complexity: 1.9859677550161503
+2025-03-13 13:47:25,040 - DMBD-TestRunner - INFO -     Cognitive structures visualization saved to output/figures/medium_temporal_target0_thresh0.1_cognitive.png
+2025-03-13 13:47:25,040 - DMBD-TestRunner - INFO -     Testing temporal cognitive structures...
+2025-03-13 13:47:25,093 - DMBD-TestRunner - INFO -     Time current:
+2025-03-13 13:47:25,093 - DMBD-TestRunner - INFO -       Sensory nodes: [5]
+2025-03-13 13:47:25,094 - DMBD-TestRunner - INFO -       Action nodes: [4, 6]
+2025-03-13 13:47:25,094 - DMBD-TestRunner - INFO -       Internal state nodes: [2, 3, 7]
+2025-03-13 13:47:25,094 - DMBD-TestRunner - INFO -     Time lag_1:
+2025-03-13 13:47:25,094 - DMBD-TestRunner - INFO -       Sensory nodes: []
+2025-03-13 13:47:25,094 - DMBD-TestRunner - INFO -       Action nodes: []
+2025-03-13 13:47:25,094 - DMBD-TestRunner - INFO -       Internal state nodes: []
+2025-03-13 13:47:25,094 - DMBD-TestRunner - INFO -     Testing with threshold=0.3...
+2025-03-13 13:47:25,137 - DMBD-TestRunner - INFO -     Sensory nodes: [5]
+2025-03-13 13:47:25,138 - DMBD-TestRunner - INFO -     Action nodes: [4, 6]
+2025-03-13 13:47:25,138 - DMBD-TestRunner - INFO -     Internal state nodes: [2, 3, 7]
+2025-03-13 13:47:25,144 - DMBD-TestRunner - INFO -     Cognitive capacity: 0.1697623749772417
+2025-03-13 13:47:25,145 - DMBD-TestRunner - INFO -     Integration: 11.69851538235365
+2025-03-13 13:47:25,145 - DMBD-TestRunner - INFO -     Complexity: 1.9859677550161503
+2025-03-13 13:47:26,226 - DMBD-TestRunner - INFO -     Cognitive structures visualization saved to output/figures/medium_temporal_target0_thresh0.3_cognitive.png
+2025-03-13 13:47:26,227 - DMBD-TestRunner - INFO -     Testing temporal cognitive structures...
+2025-03-13 13:47:26,276 - DMBD-TestRunner - INFO -     Time current:
+2025-03-13 13:47:26,277 - DMBD-TestRunner - INFO -       Sensory nodes: [5]
+2025-03-13 13:47:26,277 - DMBD-TestRunner - INFO -       Action nodes: [4, 6]
+2025-03-13 13:47:26,277 - DMBD-TestRunner - INFO -       Internal state nodes: [2, 3, 7]
+2025-03-13 13:47:26,278 - DMBD-TestRunner - INFO -     Time lag_1:
+2025-03-13 13:47:26,278 - DMBD-TestRunner - INFO -       Sensory nodes: []
+2025-03-13 13:47:26,278 - DMBD-TestRunner - INFO -       Action nodes: []
+2025-03-13 13:47:26,278 - DMBD-TestRunner - INFO -       Internal state nodes: []
+2025-03-13 13:47:26,278 - DMBD-TestRunner - INFO -   Testing target node 1...
+2025-03-13 13:47:26,278 - DMBD-TestRunner - INFO -     Testing with threshold=0.0...
+2025-03-13 13:47:26,333 - DMBD-TestRunner - INFO -     Sensory nodes: []
+2025-03-13 13:47:26,333 - DMBD-TestRunner - INFO -     Action nodes: [3, 6]
+2025-03-13 13:47:26,333 - DMBD-TestRunner - INFO -     Internal state nodes: [2, 7]
+2025-03-13 13:47:26,336 - DMBD-TestRunner - INFO -     Cognitive capacity: 0.2541808536459574
+2025-03-13 13:47:26,336 - DMBD-TestRunner - INFO -     Integration: 11.634787203816932
+2025-03-13 13:47:26,336 - DMBD-TestRunner - INFO -     Complexity: 2.9573401434552493
+2025-03-13 13:47:27,826 - DMBD-TestRunner - INFO -     Cognitive structures visualization saved to output/figures/medium_temporal_target1_thresh0.0_cognitive.png
+2025-03-13 13:47:27,826 - DMBD-TestRunner - INFO -     Testing temporal cognitive structures...
+2025-03-13 13:47:27,888 - DMBD-TestRunner - INFO -     Time current:
+2025-03-13 13:47:27,889 - DMBD-TestRunner - INFO -       Sensory nodes: []
+2025-03-13 13:47:27,889 - DMBD-TestRunner - INFO -       Action nodes: [3, 6]
+2025-03-13 13:47:27,889 - DMBD-TestRunner - INFO -       Internal state nodes: [2, 7]
+2025-03-13 13:47:27,889 - DMBD-TestRunner - INFO -     Time lag_1:
+2025-03-13 13:47:27,889 - DMBD-TestRunner - INFO -       Sensory nodes: []
+2025-03-13 13:47:27,889 - DMBD-TestRunner - INFO -       Action nodes: []
+2025-03-13 13:47:27,889 - DMBD-TestRunner - INFO -       Internal state nodes: []
+2025-03-13 13:47:27,890 - DMBD-TestRunner - INFO -     Testing with threshold=0.1...
+2025-03-13 13:47:27,947 - DMBD-TestRunner - INFO -     Sensory nodes: []
+2025-03-13 13:47:27,948 - DMBD-TestRunner - INFO -     Action nodes: [3, 6]
+2025-03-13 13:47:27,948 - DMBD-TestRunner - INFO -     Internal state nodes: [2, 7]
+2025-03-13 13:47:27,951 - DMBD-TestRunner - INFO -     Cognitive capacity: 0.2541808536459574
+2025-03-13 13:47:27,952 - DMBD-TestRunner - INFO -     Integration: 11.634787203816932
+2025-03-13 13:47:27,952 - DMBD-TestRunner - INFO -     Complexity: 2.9573401434552493
+2025-03-13 13:47:29,566 - DMBD-TestRunner - INFO -     Cognitive structures visualization saved to output/figures/medium_temporal_target1_thresh0.1_cognitive.png
+2025-03-13 13:47:29,566 - DMBD-TestRunner - INFO -     Testing temporal cognitive structures...
+2025-03-13 13:47:29,615 - DMBD-TestRunner - INFO -     Time current:
+2025-03-13 13:47:29,615 - DMBD-TestRunner - INFO -       Sensory nodes: []
+2025-03-13 13:47:29,615 - DMBD-TestRunner - INFO -       Action nodes: [3, 6]
+2025-03-13 13:47:29,615 - DMBD-TestRunner - INFO -       Internal state nodes: [2, 7]
+2025-03-13 13:47:29,616 - DMBD-TestRunner - INFO -     Time lag_1:
+2025-03-13 13:47:29,616 - DMBD-TestRunner - INFO -       Sensory nodes: []
+2025-03-13 13:47:29,616 - DMBD-TestRunner - INFO -       Action nodes: []
+2025-03-13 13:47:29,616 - DMBD-TestRunner - INFO -       Internal state nodes: []
+2025-03-13 13:47:29,616 - DMBD-TestRunner - INFO -     Testing with threshold=0.3...
+2025-03-13 13:47:29,661 - DMBD-TestRunner - INFO -     Sensory nodes: []
+2025-03-13 13:47:29,662 - DMBD-TestRunner - INFO -     Action nodes: [3, 6]
+2025-03-13 13:47:29,662 - DMBD-TestRunner - INFO -     Internal state nodes: [2, 7]
+2025-03-13 13:47:29,664 - DMBD-TestRunner - INFO -     Cognitive capacity: 0.2541808536459574
+2025-03-13 13:47:29,664 - DMBD-TestRunner - INFO -     Integration: 11.634787203816932
+2025-03-13 13:47:29,664 - DMBD-TestRunner - INFO -     Complexity: 2.9573401434552493
+2025-03-13 13:47:31,064 - DMBD-TestRunner - INFO -     Cognitive structures visualization saved to output/figures/medium_temporal_target1_thresh0.3_cognitive.png
+2025-03-13 13:47:31,065 - DMBD-TestRunner - INFO -     Testing temporal cognitive structures...
+2025-03-13 13:47:31,107 - DMBD-TestRunner - INFO -     Time current:
+2025-03-13 13:47:31,107 - DMBD-TestRunner - INFO -       Sensory nodes: []
+2025-03-13 13:47:31,107 - DMBD-TestRunner - INFO -       Action nodes: [3, 6]
+2025-03-13 13:47:31,107 - DMBD-TestRunner - INFO -       Internal state nodes: [2, 7]
+2025-03-13 13:47:31,107 - DMBD-TestRunner - INFO -     Time lag_1:
+2025-03-13 13:47:31,107 - DMBD-TestRunner - INFO -       Sensory nodes: []
+2025-03-13 13:47:31,107 - DMBD-TestRunner - INFO -       Action nodes: []
+2025-03-13 13:47:31,107 - DMBD-TestRunner - INFO -       Internal state nodes: []
+2025-03-13 13:47:31,107 - DMBD-TestRunner - INFO -   Testing target node 4...
+2025-03-13 13:47:31,107 - DMBD-TestRunner - INFO -     Testing with threshold=0.0...
+2025-03-13 13:47:31,157 - DMBD-TestRunner - INFO -     Sensory nodes: []
+2025-03-13 13:47:31,158 - DMBD-TestRunner - INFO -     Action nodes: [0, 5]
+2025-03-13 13:47:31,158 - DMBD-TestRunner - INFO -     Internal state nodes: [2, 3, 6, 7]
+2025-03-13 13:47:31,173 - DMBD-TestRunner - INFO -     Cognitive capacity: 0.046255274426917375
+2025-03-13 13:47:31,174 - DMBD-TestRunner - INFO -     Integration: 11.832294522343807
+2025-03-13 13:47:31,174 - DMBD-TestRunner - INFO -     Complexity: 0.547306030231124
+2025-03-13 13:47:32,742 - DMBD-TestRunner - INFO -     Cognitive structures visualization saved to output/figures/medium_temporal_target4_thresh0.0_cognitive.png
+2025-03-13 13:47:32,742 - DMBD-TestRunner - INFO -     Testing temporal cognitive structures...
+2025-03-13 13:47:32,785 - DMBD-TestRunner - INFO -     Time current:
+2025-03-13 13:47:32,785 - DMBD-TestRunner - INFO -       Sensory nodes: []
+2025-03-13 13:47:32,785 - DMBD-TestRunner - INFO -       Action nodes: [0, 5]
+2025-03-13 13:47:32,785 - DMBD-TestRunner - INFO -       Internal state nodes: [2, 3, 6, 7]
+2025-03-13 13:47:32,785 - DMBD-TestRunner - INFO -     Time lag_1:
+2025-03-13 13:47:32,786 - DMBD-TestRunner - INFO -       Sensory nodes: []
+2025-03-13 13:47:32,786 - DMBD-TestRunner - INFO -       Action nodes: []
+2025-03-13 13:47:32,786 - DMBD-TestRunner - INFO -       Internal state nodes: []
+2025-03-13 13:47:32,786 - DMBD-TestRunner - INFO -     Testing with threshold=0.1...
+2025-03-13 13:47:32,830 - DMBD-TestRunner - INFO -     Sensory nodes: []
+2025-03-13 13:47:32,831 - DMBD-TestRunner - INFO -     Action nodes: [0, 5]
+2025-03-13 13:47:32,831 - DMBD-TestRunner - INFO -     Internal state nodes: [2, 3, 6, 7]
+2025-03-13 13:47:32,846 - DMBD-TestRunner - INFO -     Cognitive capacity: 0.046255274426917375
+2025-03-13 13:47:32,847 - DMBD-TestRunner - INFO -     Integration: 11.832294522343807
+2025-03-13 13:47:32,847 - DMBD-TestRunner - INFO -     Complexity: 0.547306030231124
+2025-03-13 13:47:34,719 - DMBD-TestRunner - INFO -     Cognitive structures visualization saved to output/figures/medium_temporal_target4_thresh0.1_cognitive.png
+2025-03-13 13:47:34,719 - DMBD-TestRunner - INFO -     Testing temporal cognitive structures...
+2025-03-13 13:47:34,756 - DMBD-TestRunner - INFO -     Time current:
+2025-03-13 13:47:34,756 - DMBD-TestRunner - INFO -       Sensory nodes: []
+2025-03-13 13:47:34,756 - DMBD-TestRunner - INFO -       Action nodes: [0, 5]
+2025-03-13 13:47:34,756 - DMBD-TestRunner - INFO -       Internal state nodes: [2, 3, 6, 7]
+2025-03-13 13:47:34,756 - DMBD-TestRunner - INFO -     Time lag_1:
+2025-03-13 13:47:34,756 - DMBD-TestRunner - INFO -       Sensory nodes: []
+2025-03-13 13:47:34,756 - DMBD-TestRunner - INFO -       Action nodes: []
+2025-03-13 13:47:34,756 - DMBD-TestRunner - INFO -       Internal state nodes: []
+2025-03-13 13:47:34,756 - DMBD-TestRunner - INFO -     Testing with threshold=0.3...
+2025-03-13 13:47:34,786 - DMBD-TestRunner - INFO -     Sensory nodes: []
+2025-03-13 13:47:34,786 - DMBD-TestRunner - INFO -     Action nodes: [0, 5]
+2025-03-13 13:47:34,786 - DMBD-TestRunner - INFO -     Internal state nodes: [2, 3, 6, 7]
+2025-03-13 13:47:34,800 - DMBD-TestRunner - INFO -     Cognitive capacity: 0.046255274426917375
+2025-03-13 13:47:34,800 - DMBD-TestRunner - INFO -     Integration: 11.832294522343807
+2025-03-13 13:47:34,800 - DMBD-TestRunner - INFO -     Complexity: 0.547306030231124
+2025-03-13 13:47:36,167 - DMBD-TestRunner - INFO -     Cognitive structures visualization saved to output/figures/medium_temporal_target4_thresh0.3_cognitive.png
+2025-03-13 13:47:36,168 - DMBD-TestRunner - INFO -     Testing temporal cognitive structures...
+2025-03-13 13:47:36,228 - DMBD-TestRunner - INFO -     Time current:
+2025-03-13 13:47:36,229 - DMBD-TestRunner - INFO -       Sensory nodes: []
+2025-03-13 13:47:36,229 - DMBD-TestRunner - INFO -       Action nodes: [0, 5]
+2025-03-13 13:47:36,229 - DMBD-TestRunner - INFO -       Internal state nodes: [2, 3, 6, 7]
+2025-03-13 13:47:36,229 - DMBD-TestRunner - INFO -     Time lag_1:
+2025-03-13 13:47:36,229 - DMBD-TestRunner - INFO -       Sensory nodes: []
+2025-03-13 13:47:36,229 - DMBD-TestRunner - INFO -       Action nodes: []
+2025-03-13 13:47:36,229 - DMBD-TestRunner - INFO -       Internal state nodes: []
+2025-03-13 13:47:36,230 - DMBD-TestRunner - INFO - Running comprehensive DMBDAnalyzer tests with visualizations...
+2025-03-13 13:47:36,230 - DMBD-TestRunner - INFO - Testing DMBDAnalyzer with dataset 'medium_static'...
+2025-03-13 13:47:36,679 - DMBD-TestRunner - INFO -   Testing target node 0...
+2025-03-13 13:47:36,680 - DMBD-TestRunner - INFO -     Testing with threshold=0.1...
+2025-03-13 13:47:37,433 - DMBD-TestRunner - INFO -     Markov Blanket - Parents: [6, 8, 9]
+2025-03-13 13:47:37,434 - DMBD-TestRunner - INFO -     Markov Blanket - Children: [4, 5, 7]
+2025-03-13 13:47:37,434 - DMBD-TestRunner - INFO -     Markov Blanket - Spouses: [1, 3]
+2025-03-13 13:47:37,434 - DMBD-TestRunner - INFO -     Markov Blanket - Size: 8
+2025-03-13 13:47:37,434 - DMBD-TestRunner - INFO -     Cognitive - Sensory: [6, 8, 9]
+2025-03-13 13:47:37,434 - DMBD-TestRunner - INFO -     Cognitive - Action: [4, 5, 7]
+2025-03-13 13:47:37,434 - DMBD-TestRunner - INFO -     Cognitive - Internal: [1, 3]
+2025-03-13 13:47:37,703 - DMBD-TestRunner - ERROR - Error in DMBDAnalyzer tests: 'spouses'
+2025-03-13 13:47:37,703 - DMBD-TestRunner - ERROR - Traceback (most recent call last):
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/run_tests.py", line 420, in run_dmbd_analyzer_tests
+    fig1 = analyzer.visualize_markov_blanket(target_idx)
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/src/dmbd_analyzer.py", line 316, in visualize_markov_blanket
+    fig = self.visualizer.plot_markov_blanket(
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/framework/visualization.py", line 108, in plot_markov_blanket
+    node_colors = [self.colors[G.nodes[n]['category']] for n in G.nodes()]
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/framework/visualization.py", line 108, in <listcomp>
+    node_colors = [self.colors[G.nodes[n]['category']] for n in G.nodes()]
+KeyError: 'spouses'
+
+2025-03-13 13:47:37,703 - DMBD-TestRunner - INFO - Running PyTorch tensor conversion tests...
+2025-03-13 13:47:37,704 - DMBD-TestRunner - INFO - Testing tensor conversion with dataset 'small_static'...
+2025-03-13 13:47:37,704 - DMBD-TestRunner - INFO -   Converted to tensor of shape torch.Size([100, 5])
+2025-03-13 13:47:37,732 - DMBD-TestRunner - INFO -   MarkovBlanket with tensor - Parents: []
+2025-03-13 13:47:37,732 - DMBD-TestRunner - INFO -   MarkovBlanket with tensor - Children: [3, 4]
+2025-03-13 13:47:37,732 - DMBD-TestRunner - INFO -   MarkovBlanket with tensor - Spouses: [2]
+2025-03-13 13:47:37,732 - DMBD-TestRunner - INFO - Testing tensor conversion with dataset 'small_temporal'...
+2025-03-13 13:47:37,733 - DMBD-TestRunner - INFO -   Converted to tensor of shape torch.Size([250, 5])
+2025-03-13 13:47:37,742 - DMBD-TestRunner - INFO -   MarkovBlanket with tensor - Parents: []
+2025-03-13 13:47:37,743 - DMBD-TestRunner - INFO -   MarkovBlanket with tensor - Children: [4]
+2025-03-13 13:47:37,743 - DMBD-TestRunner - INFO -   MarkovBlanket with tensor - Spouses: [3]
+2025-03-13 13:47:37,755 - DMBD-TestRunner - INFO -   DynamicMarkovBlanket with tensor - Components: dict_keys(['current', 'lag_1'])
+2025-03-13 13:47:37,756 - DMBD-TestRunner - INFO - Running built-in examples with visualization capture...
+2025-03-13 13:47:37,756 - DMBD-TestRunner - INFO - Running basic Markov blanket example...
+2025-03-13 13:47:38,526 - DMBD-TestRunner - ERROR - Error in examples: 'parents'
+2025-03-13 13:47:38,526 - DMBD-TestRunner - ERROR - Traceback (most recent call last):
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/run_tests.py", line 562, in run_examples
+    basic_markov_blanket_example()
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/src/examples.py", line 147, in basic_markov_blanket_example
+    fig1 = analyzer.visualize_markov_blanket(target_idx)
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/src/dmbd_analyzer.py", line 316, in visualize_markov_blanket
+    fig = self.visualizer.plot_markov_blanket(
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/framework/visualization.py", line 108, in plot_markov_blanket
+    node_colors = [self.colors[G.nodes[n]['category']] for n in G.nodes()]
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/framework/visualization.py", line 108, in <listcomp>
+    node_colors = [self.colors[G.nodes[n]['category']] for n in G.nodes()]
+KeyError: 'parents'
+
+2025-03-13 13:47:38,527 - DMBD-TestRunner - INFO - Generating summary report...
+2025-03-13 13:47:38,527 - DMBD-TestRunner - INFO - Summary report written to output/test_summary.txt
+2025-03-13 13:47:38,527 - DMBD-TestRunner - INFO - All tests completed successfully!

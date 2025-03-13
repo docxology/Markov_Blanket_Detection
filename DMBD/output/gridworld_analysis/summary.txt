@@ -1,0 +1,26 @@
+Gridworld Dynamic Markov Blanket Analysis
+=======================================
+
+Grid size: 20x20
+Time points: 20
+Radius: 7.0
+Sigma: 1.5
+Threshold: 0.05
+Used PyTorch: True
+
+Generated outputs:
+  simulation:
+    animation: output/gridworld_analysis/simulation/gridworld_animation.mp4
+    frame: output/gridworld_analysis/simulation/gridworld_frame.png
+    data: output/gridworld_analysis/simulation/gridworld_data.csv
+  analysis:
+    markov_blanket_partition: output/gridworld_analysis/analysis/markov_blanket_partition.png
+    cognitive_partition: output/gridworld_analysis/analysis/cognitive_partition.png
+    gaussian_markov_comparison: output/gridworld_analysis/analysis/gaussian_markov_comparison.png
+    gaussian_markov_comparison_t0: output/gridworld_analysis/analysis/gaussian_markov_comparison_t0.png
+    gaussian_markov_comparison_t5: output/gridworld_analysis/analysis/gaussian_markov_comparison_t5.png
+    gaussian_markov_comparison_t10: output/gridworld_analysis/analysis/gaussian_markov_comparison_t10.png
+    gaussian_markov_comparison_t15: output/gridworld_analysis/analysis/gaussian_markov_comparison_t15.png
+    gaussian_markov_comparison_t19: output/gridworld_analysis/analysis/gaussian_markov_comparison_t19.png
+    markov_blanket_animation: output/gridworld_analysis/analysis/markov_blanket_animation.mp4
+    cognitive_structure_animation: output/gridworld_analysis/analysis/cognitive_structure_animation.mp4

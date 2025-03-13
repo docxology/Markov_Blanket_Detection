@@ -1,0 +1,32 @@
+Analysis of PyTorch-Inferred Markov Blanket Partition (Time=10)
+=========================================================
+
+Cell Counts:
+  Internal states: 0
+  Blanket states: 0
+  External states: 207
+  Total cells: 400
+
+Density Counts:
+  High density cells (>70%): 5
+  Medium density cells (30-70%): 16
+  Low density cells (<30%): 379
+
+Overlap Metrics:
+  Internal states:
+    High density: 0 (nan% of internal)
+    Medium density: 0 (nan% of internal)
+    Low density: 0 (nan% of internal)
+  Blanket states:
+    High density: 0 (nan% of blanket)
+    Medium density: 0 (nan% of blanket)
+    Low density: 0 (nan% of blanket)
+  External states:
+    High density: 0 (0.00% of external)
+    Medium density: 0 (0.00% of external)
+    Low density: 207 (100.00% of external)
+
+Precision and Recall for Internal States vs High Density:
+  Recall: 0.00% of high-density cells are classified as internal
+  Precision: 0.00% of cells classified as internal are high-density
+  F1 Score: nan% if both > 0 else 0

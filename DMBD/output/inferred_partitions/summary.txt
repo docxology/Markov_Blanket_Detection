@@ -1,0 +1,22 @@
+Gridworld Dynamic Markov Blanket Analysis using PyTorch Inference
+==========================================================
+
+Grid size: 20x20
+Time points: 20
+Radius: 7.0
+Sigma: 1.5
+Threshold: 0.05
+Used PyTorch: True
+
+Generated outputs:
+  simulation:
+    animation: output/inferred_partitions/simulation/gridworld_animation.mp4
+    frame: output/inferred_partitions/simulation/gridworld_frame.png
+    data: output/inferred_partitions/simulation/gridworld_data.csv
+  analysis:
+    markov_partition_t0: output/inferred_partitions/analysis/markov_partition_t0.png
+    markov_partition_t5: output/inferred_partitions/analysis/markov_partition_t5.png
+    markov_partition_t10: output/inferred_partitions/analysis/markov_partition_t10.png
+    markov_partition_t15: output/inferred_partitions/analysis/markov_partition_t15.png
+    markov_partition_t19: output/inferred_partitions/analysis/markov_partition_t19.png
+    markov_partition_evolution: output/inferred_partitions/analysis/markov_partition_evolution.mp4

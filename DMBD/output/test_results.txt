@@ -1,0 +1,205 @@
+test_compute_average_influence (test_cognitive_identification.TestCognitiveIdentification)
+Test _compute_average_influence method. ... ok
+test_compute_cognitive_metrics (test_cognitive_identification.TestCognitiveIdentification)
+Test compute_cognitive_metrics method. ... ok
+test_compute_component_interaction (test_cognitive_identification.TestCognitiveIdentification)
+Test _compute_component_interaction method. ... ok
+test_compute_information_flow (test_cognitive_identification.TestCognitiveIdentification)
+Test _compute_information_flow method. ... FAIL
+test_constructor_with_tensor (test_cognitive_identification.TestCognitiveIdentification)
+Test construction with a PyTorch tensor. ... ok
+test_identify_cognitive_structures (test_cognitive_identification.TestCognitiveIdentification)
+Test identify_cognitive_structures method. ... FAIL
+test_identify_temporal_cognitive_structures (test_cognitive_identification.TestCognitiveIdentification)
+Test identify_temporal_cognitive_structures method. ... ok
+test_analyze_target (test_dmbd_analyzer.TestDMBDAnalyzer)
+Test analyze_target method. ... ok
+test_detect_dynamic_markov_blanket (test_dmbd_analyzer.TestDMBDAnalyzer)
+Test detect_dynamic_markov_blanket method. ... FAIL
+test_detect_markov_blanket (test_dmbd_analyzer.TestDMBDAnalyzer)
+Test detect_markov_blanket method. ... FAIL
+test_identify_cognitive_structures (test_dmbd_analyzer.TestDMBDAnalyzer)
+Test identify_cognitive_structures method. ... ok
+test_identify_temporal_cognitive_structures (test_dmbd_analyzer.TestDMBDAnalyzer)
+Test identify_temporal_cognitive_structures method. ... ok
+test_init_with_csv (test_dmbd_analyzer.TestDMBDAnalyzer)
+Test initialization with a CSV file. ... ok
+test_init_with_dataframe (test_dmbd_analyzer.TestDMBDAnalyzer)
+Test initialization with a pandas DataFrame. ... ok
+test_init_with_tensor (test_dmbd_analyzer.TestDMBDAnalyzer)
+Test initialization with a PyTorch tensor. ... ok
+test_partition_data_by_markov_blanket (test_dmbd_analyzer.TestDMBDAnalyzer)
+Test partition_data_by_markov_blanket method. ... FAIL
+test_save_load_results (test_dmbd_analyzer.TestDMBDAnalyzer)
+Test save_results and load_results methods. ... ok
+test_visualization_methods (test_dmbd_analyzer.TestDMBDAnalyzer)
+Test visualization methods. ... ERROR
+test_classify_dynamic_nodes (test_markov_blanket.TestDynamicMarkovBlanket)
+Test classify_dynamic_nodes method. ... ok
+test_constructor_with_tensor (test_markov_blanket.TestDynamicMarkovBlanket)
+Test constructor with tensor input. ... ok
+test_detect_dynamic_blanket (test_markov_blanket.TestDynamicMarkovBlanket)
+Test detect_dynamic_blanket method. ... FAIL
+test_classify_nodes (test_markov_blanket.TestMarkovBlanket)
+Test classify_nodes method. ... FAIL
+test_compute_mutual_information (test_markov_blanket.TestMarkovBlanket)
+Test compute_mutual_information method. ... ok
+test_constructor_with_tensor (test_markov_blanket.TestMarkovBlanket)
+Test constructor with tensor input. ... FAIL
+test_detect_blanket (test_markov_blanket.TestMarkovBlanket)
+Test detect_blanket method. ... FAIL
+test_get_blanket_strength (test_markov_blanket.TestMarkovBlanket)
+Test get_blanket_strength method. ... FAIL
+test_custom_axes (test_visualization.TestMarkovBlanketVisualizer)
+Test using custom axes for plotting. ... ERROR
+test_plot_blanket_components (test_visualization.TestMarkovBlanketVisualizer)
+Test plot_blanket_components method. ... ok
+test_plot_cognitive_structures (test_visualization.TestMarkovBlanketVisualizer)
+Test plot_cognitive_structures method. ... ok
+test_plot_information_flow (test_visualization.TestMarkovBlanketVisualizer)
+Test plot_information_flow method. ... ok
+test_plot_markov_blanket (test_visualization.TestMarkovBlanketVisualizer)
+Test plot_markov_blanket method. ... ERROR
+test_plot_temporal_dynamics (test_visualization.TestMarkovBlanketVisualizer)
+Test plot_temporal_dynamics method. ... ok
+
+======================================================================
+ERROR: test_visualization_methods (test_dmbd_analyzer.TestDMBDAnalyzer)
+Test visualization methods.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/tests/test_dmbd_analyzer.py", line 199, in test_visualization_methods
+    fig1 = self.analyzer.visualize_markov_blanket(target_idx)
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/src/dmbd_analyzer.py", line 316, in visualize_markov_blanket
+    fig = self.visualizer.plot_markov_blanket(
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/framework/visualization.py", line 108, in plot_markov_blanket
+    node_colors = [self.colors[G.nodes[n]['category']] for n in G.nodes()]
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/framework/visualization.py", line 108, in <listcomp>
+    node_colors = [self.colors[G.nodes[n]['category']] for n in G.nodes()]
+KeyError: 'children'
+
+======================================================================
+ERROR: test_custom_axes (test_visualization.TestMarkovBlanketVisualizer)
+Test using custom axes for plotting.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/tests/test_visualization.py", line 134, in test_custom_axes
+    self.visualizer.plot_markov_blanket(
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/framework/visualization.py", line 108, in plot_markov_blanket
+    node_colors = [self.colors[G.nodes[n]['category']] for n in G.nodes()]
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/framework/visualization.py", line 108, in <listcomp>
+    node_colors = [self.colors[G.nodes[n]['category']] for n in G.nodes()]
+KeyError: 'children'
+
+======================================================================
+ERROR: test_plot_markov_blanket (test_visualization.TestMarkovBlanketVisualizer)
+Test plot_markov_blanket method.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/tests/test_visualization.py", line 53, in test_plot_markov_blanket
+    fig = self.visualizer.plot_markov_blanket(
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/framework/visualization.py", line 108, in plot_markov_blanket
+    node_colors = [self.colors[G.nodes[n]['category']] for n in G.nodes()]
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/framework/visualization.py", line 108, in <listcomp>
+    node_colors = [self.colors[G.nodes[n]['category']] for n in G.nodes()]
+KeyError: 'children'
+
+======================================================================
+FAIL: test_compute_information_flow (test_cognitive_identification.TestCognitiveIdentification)
+Test _compute_information_flow method.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/tests/test_cognitive_identification.py", line 82, in test_compute_information_flow
+    self.assertIn(target, flows)
+AssertionError: 2 not found in {0: 0.48141805842441343}
+
+======================================================================
+FAIL: test_identify_cognitive_structures (test_cognitive_identification.TestCognitiveIdentification)
+Test identify_cognitive_structures method.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/tests/test_cognitive_identification.py", line 65, in test_identify_cognitive_structures
+    self.assertIn(node, structures['sensory'])
+AssertionError: 0 not found in []
+
+======================================================================
+FAIL: test_detect_dynamic_markov_blanket (test_dmbd_analyzer.TestDMBDAnalyzer)
+Test detect_dynamic_markov_blanket method.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/tests/test_dmbd_analyzer.py", line 121, in test_detect_dynamic_markov_blanket
+    self.assertIn('current', dynamic_components)
+AssertionError: 'current' not found in {'dynamic_components': {'current': {'parents': [], 'children': [1, 2, 3], 'spouses': []}, 'lag_1': {'parents': [], 'children': [], 'spouses': []}}, 'dynamic_classifications': {'current': {'internal': [0], 'blanket': [1, 2, 3], 'external': [4]}, 'lag_1': {'internal': [0], 'blanket': [], 'external': [1, 2, 3, 4]}}}
+
+======================================================================
+FAIL: test_detect_markov_blanket (test_dmbd_analyzer.TestDMBDAnalyzer)
+Test detect_markov_blanket method.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/tests/test_dmbd_analyzer.py", line 107, in test_detect_markov_blanket
+    self.assertEqual(set(result['children']), set([1, 2]))  # X0 has X1, X2 as children
+AssertionError: Items in the first set but not the second:
+3
+
+======================================================================
+FAIL: test_partition_data_by_markov_blanket (test_dmbd_analyzer.TestDMBDAnalyzer)
+Test partition_data_by_markov_blanket method.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/tests/test_dmbd_analyzer.py", line 173, in test_partition_data_by_markov_blanket
+    self.assertEqual(partitions['blanket'].shape[1], 2)  # X1, X2
+AssertionError: 3 != 2
+
+======================================================================
+FAIL: test_detect_dynamic_blanket (test_markov_blanket.TestDynamicMarkovBlanket)
+Test detect_dynamic_blanket method.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/tests/test_markov_blanket.py", line 221, in test_detect_dynamic_blanket
+    self.assertIn(0, current['parents'])
+AssertionError: 0 not found in [2]
+
+======================================================================
+FAIL: test_classify_nodes (test_markov_blanket.TestMarkovBlanket)
+Test classify_nodes method.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/tests/test_markov_blanket.py", line 97, in test_classify_nodes
+    self.assertEqual(set(classifications['blanket']), set([1, 2]))
+AssertionError: Items in the first set but not the second:
+3
+
+======================================================================
+FAIL: test_constructor_with_tensor (test_markov_blanket.TestMarkovBlanket)
+Test constructor with tensor input.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/tests/test_markov_blanket.py", line 154, in test_constructor_with_tensor
+    self.assertEqual(set(children), set(self.expected_children[0]))
+AssertionError: Items in the first set but not the second:
+3
+
+======================================================================
+FAIL: test_detect_blanket (test_markov_blanket.TestMarkovBlanket)
+Test detect_blanket method.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/tests/test_markov_blanket.py", line 81, in test_detect_blanket
+    self.assertEqual(set(children), set(self.expected_children[i]),
+AssertionError: Items in the first set but not the second:
+3 : Children incorrect for X0
+
+======================================================================
+FAIL: test_get_blanket_strength (test_markov_blanket.TestMarkovBlanket)
+Test get_blanket_strength method.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/trim/Documents/GitHub/OpenManus/DMBD/tests/test_markov_blanket.py", line 135, in test_get_blanket_strength
+    self.assertEqual(set(strengths.keys()), set([1, 2]))
+AssertionError: Items in the first set but not the second:
+3
+
+----------------------------------------------------------------------
+Ran 32 tests in 3.631s
+
+FAILED (failures=10, errors=3)

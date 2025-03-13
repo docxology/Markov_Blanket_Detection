@@ -1,0 +1,23 @@
+Metadata-Version: 2.2
+Name: dmbd
+Version: 0.1.0
+Summary: Dynamic Markov Blanket Detection for probabilistic causal inference
+Author: OpenManus
+Keywords: markov,blanket,dynamic,causal,inference,torch,pytorch
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.8
+Requires-Dist: torch>=1.12.0
+Requires-Dist: numpy>=1.20.0
+Requires-Dist: pandas>=1.3.0
+Requires-Dist: scikit-learn>=1.0.0
+Requires-Dist: matplotlib>=3.4.0
+Requires-Dist: tqdm>=4.62.0
+Dynamic: author
+Dynamic: classifier
+Dynamic: keywords
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary

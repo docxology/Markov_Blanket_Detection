@@ -1,0 +1,21 @@
+Metrics for PyTorch-Inferred Markov Blanket Partition (Time=19)
+==========================================================
+
+Cell Counts:
+  Internal states: 16 cells
+  Blanket states: 54 cells
+  External states: 330 cells
+  Total cells: 400 cells
+
+Density Analysis:
+  High density cells (>70% max): 12 cells
+  Internal states that are high density: 12 cells
+
+Precision and Recall:
+  Recall: 100.00% of high density cells are classified as internal
+  Precision: 75.00% of internal cells are high density
+  F1 Score: 85.71%
+
+Topological Constraints:
+  Internal states form a connected component: True
+  Internal states are surrounded by blanket: True
