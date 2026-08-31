@@ -4,6 +4,24 @@ A comprehensive framework for detecting and analyzing Markov blankets in dynamic
 
 ## Overview
 
+## Status (as of 2026-08-31, verified by `git status -sb` / `ls DMBD/`)
+
+- Branch: `main` (remote: `github.com/docxology/Markov_Blanket_Detection`).
+- State: working code + test suite; generated analysis outputs under
+  `DMBD/output/`. No manuscript / paper source (see
+  `docs/manuscript/MANUSCRIPT_STATUS.md` if present, else none).
+- Verify the suite with: `python DMBD/run_tests.py` (see Running Tests
+  below for the venv prerequisite).
+- Backlog / next actions: **[TODO.md](TODO.md)** is the single canonical
+  backlog.
+
+## For agents
+
+Start at **[AGENTS.md](AGENTS.md)** for layout, gotchas, and doc-writing
+rules. `DMBD/README_gridworld.md` documents the gridworld demo module.
+
+## Overview
+
 Dynamic Markov Blanket Detection (DMBD) provides tools for identifying causal relationships in complex systems by detecting and analyzing Markov blankets. A Markov blanket for a node in a graph consists of its parents, children, and the parents of its children (spouses), and shields the node from the rest of the network - making the node conditionally independent of all other variables given its Markov blanket.
 
 This framework extends traditional static Markov blanket detection to dynamic systems, allowing for the detection of temporal dependencies and the evolution of Markov blankets over time.
@@ -119,21 +137,21 @@ flowchart TD
 ### Prerequisites
 
 - Python 3.8+
-- PyTorch 1.12+
+- PyTorch 1.12+ (plus numpy, pandas, scikit-learn, matplotlib, tqdm,
+  networkx, seaborn — see `DMBD/pyproject.toml`)
 
-### Using pip
-
-```bash
-pip install dmbd
-```
-
-### Development Installation
+### From source (verified path)
 
 ```bash
-git clone https://github.com/openmanus/dmbd.git
-cd dmbd
+git clone https://github.com/docxology/Markov_Blanket_Detection.git
+cd Markov_Blanket_Detection/DMBD
+python3 -m venv .venv && . .venv/bin/activate
 pip install -e .
 ```
+
+> Note: the previous README claimed `pip install dmbd` from PyPI; no PyPI
+> publication could be verified from this repo (see `TODO.md`, Major
+> items). Use the source install above.
 
 ## Quick Start
 
@@ -407,16 +425,19 @@ graph TD
 
 ## Running Tests
 
-To run the test suite:
+From the repo root (needs the `DMBD/.venv` environment or the deps above
+installed; otherwise you get `ModuleNotFoundError: pandas`):
+
+```bash
+python DMBD/run_tests.py          # full suite, writes logs to DMBD/output/
+bash DMBD/run_dmbd_tests.sh       # shell wrapper
+```
+
+Or directly, from inside `DMBD/`:
 
 ```bash
 python -m unittest discover tests
-```
-
-Or to run a specific test:
-
-```bash
-python -m unittest tests.test_markov_blanket
+python -m unittest tests.test_markov_blanket   # single module
 ```
 
 ## Contributing
