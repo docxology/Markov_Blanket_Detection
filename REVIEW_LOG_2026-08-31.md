@@ -48,3 +48,8 @@ branch `main`, remote github.com/docxology/Markov_Blanket_Detection.
 - Link check and commit/push recorded in the fleet report
   (/Users/4d/HermesWorkspace/agent-erg-fleet-20260831/reports/
   markov-blanket-detection.md).
+- Fast gate check: repo declares no lint/CI gate. Ran the primary
+  verification command in `DMBD/.venv` (deps verified: torch + pandas
+  import OK): 41 tests, 4 failures (detection expected-set mismatches;
+  details in TODO.md Major #2 and `DMBD/output/test_results.txt`).
+  Pre-existing; source fixes out of scope for this pass.

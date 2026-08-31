@@ -35,9 +35,11 @@ marked open.
       `openmanus.org`) does not match this repo's origin. Needs owner
       decision: publish to PyPI or rewrite README install section as
       development-install only. Deferred — out of doc-pass scope.
-- [ ] **Test suite run-to-completion on this machine.** System pythons
-      lack pandas/torch; the project venv exists at `DMBD/.venv` but
-      import of torch/pandas there was too slow to confirm within the
-      audit window (external-drive I/O). Verify with:
-      `cd DMBD && .venv/bin/python run_tests.py`. Deferred — environment
-      issue, not a docs issue; documented as unverified.
+- [ ] **Fix 4 failing tests.** Measured 2026-08-31 with
+      `cd DMBD && .venv/bin/python run_tests.py` (venv deps verified):
+      41 tests, 4 failures — test_detect_blanket,
+      test_detect_dynamic_blanket (test_markov_blanket.py);
+      test_compute_information_flow, test_identify_cognitive_structures
+      (test_cognitive_identification.py). All are expected-set/threshold
+      mismatches in detection output, i.e. source/test logic, out of scope
+      for a doc pass. Full log: `DMBD/output/test_results.txt`.
