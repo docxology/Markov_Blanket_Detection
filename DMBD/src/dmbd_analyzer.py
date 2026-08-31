@@ -157,19 +157,13 @@ class DMBDAnalyzer:
         Returns:
             Dictionary with dynamic Markov blanket components and metrics
         """
-        # Get dynamic components
-        dynamic_components = self.dynamic_markov_blanket.detect_dynamic_blanket(
+        # detect_dynamic_blanket already returns the full result dictionary
+        # with 'dynamic_components' and 'dynamic_classifications' keys; unwrap
+        # it rather than wrapping a second time, which hid the per-time keys
+        # ('current', 'lag_1') from callers.
+        return self.dynamic_markov_blanket.detect_dynamic_blanket(
             target_idx, current_only=current_only
         )
-        
-        # Classify nodes
-        dynamic_classifications = self.dynamic_markov_blanket.classify_dynamic_nodes(target_idx)
-        
-        # Return all results
-        return {
-            'dynamic_components': dynamic_components,
-            'dynamic_classifications': dynamic_classifications
-        }
     
     def identify_cognitive_structures(
         self, target_idx: int, threshold: float = 0.1

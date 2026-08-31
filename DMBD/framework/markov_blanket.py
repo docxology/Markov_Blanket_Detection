@@ -2,6 +2,8 @@
 Module for Markov Blanket detection in static and dynamic data.
 """
 
+import itertools
+
 import numpy as np
 import pandas as pd
 import torch
@@ -144,8 +146,33 @@ class MarkovBlanket:
                 
             # Test marginal independence
             p_val, is_independent = self._conditional_independence_test(target_idx, i)
-            if not is_independent:
-                neighbors.append(i)
+            if is_independent:
+                continue
+
+            # Skeleton pruning: drop mediated neighbours whose dependence on
+            # the target is explained by a single other variable (e.g. a
+            # grandchild given its immediate cause) or by the full remaining
+            # conditioning set. A direct edge stays dependent under these tests.
+            mediated = False
+            for k in range(self.n_vars):
+                if k == target_idx or k == i:
+                    continue
+                _, indep_given_k = self._conditional_independence_test(
+                    target_idx, i, [k])
+                if indep_given_k:
+                    mediated = True
+                    break
+            if not mediated:
+                others = [j for j in range(self.n_vars)
+                          if j not in (target_idx, i)]
+                if others:
+                    _, indep_given_all = self._conditional_independence_test(
+                        target_idx, i, others)
+                    mediated = indep_given_all
+            if mediated:
+                continue
+
+            neighbors.append(i)
         
         # Step 2: Separate parents and children
         for i in neighbors:
@@ -154,7 +181,7 @@ class MarkovBlanket:
             for j in neighbors:
                 if i == j:
                     continue
-                    
+                
                 # Test if j blocks the path between target and i
                 _, is_independent = self._conditional_independence_test(target_idx, i, [j])
                 if is_independent:
@@ -166,22 +193,30 @@ class MarkovBlanket:
             else:
                 parents.append(i)
         
-        # Step 3: Find spouses (parents of children)
+        # Step 3: Find spouses (other parents of the target's children).
+        # A candidate i must be connected to a child of the target and remain
+        # dependent on the target when conditioning on the child AND the other
+        # detected neighbors — conditioning on the child alone leaves a
+        # chain-induced correlation (target -> other child -> candidate) that
+        # falsely marks grandchildren's descendants as spouses.
         for child in children:
+            cond_base = [j for j in neighbors if j != child]
             for i in range(self.n_vars):
-                if i == target_idx or i in neighbors:
+                if i == target_idx or i in neighbors or i in spouses:
                     continue
                     
                 # Test if i is connected to child
                 p_val, is_independent = self._conditional_independence_test(child, i)
                 if not is_independent:
-                    # Test if i is a spouse (connected to child but not to target except through child)
-                    _, is_spouse_independent = self._conditional_independence_test(target_idx, i, [child])
-                    if not is_spouse_independent and i not in spouses:
+                    # Test if i is a spouse: dependent on target given the
+                    # child and the remaining neighbor set (collider evidence)
+                    _, is_spouse_independent = self._conditional_independence_test(
+                        target_idx, i, [child] + cond_base)
+                    if not is_spouse_independent:
                         spouses.append(i)
         
         return parents, children, spouses
-    
+
     def classify_nodes(self, target_idx: int) -> Dict[str, List[int]]:
         """
         Classify nodes into internal, blanket, and external sets.

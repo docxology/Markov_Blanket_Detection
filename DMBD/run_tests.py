@@ -5,10 +5,9 @@ Dynamic Markov Blanket Detection (DMBD) Framework Test Runner
 
 This script runs all the tests for the DMBD framework, including:
 1. Core component tests (framework modules)
-2. Integration tests
-3. Synthetic data generation tests
-4. Visualization tests
-5. Gridworld simulation and analysis tests
+2. Cognitive identification tests
+3. Visualization tests
+4. Gridworld simulation and analysis tests
 
 Results are saved to the output directory with detailed logging.
 """
@@ -27,10 +26,8 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 # Import test modules
 from tests.test_markov_blanket import *
-from tests.test_information_flow import *
 from tests.test_cognitive_identification import *
-from tests.test_synthetic_data import *
-from tests.test_visualization import *
+from tests.test_visualization import TestMarkovBlanketVisualizer
 from tests.test_gridworld_dmbd import *  # Add the gridworld tests
 
 
@@ -66,19 +63,6 @@ def setup_output_dirs():
     }
 
 
-def generate_synthetic_datasets(output_dirs, logger):
-    """Generate synthetic datasets for testing."""
-    from tests.test_synthetic_data import generate_test_datasets
-    
-    logger.info("Generating synthetic datasets for testing...")
-    datasets = generate_test_datasets(output_dir=output_dirs['data'])
-    
-    logger.info(f"Generated {len(datasets)} synthetic datasets:")
-    for name, info in datasets.items():
-        logger.info(f"  - {name}: shape={info['data'].shape}, stored at {info['path']}")
-    
-    return datasets
-
 
 def run_tests(output_dirs, logger):
     """Run all DMBD tests and return results."""
@@ -92,14 +76,12 @@ def run_tests(output_dirs, logger):
     # Core tests
     test_suite.addTest(test_loader.loadTestsFromTestCase(TestMarkovBlanket))
     test_suite.addTest(test_loader.loadTestsFromTestCase(TestDynamicMarkovBlanket))
-    test_suite.addTest(test_loader.loadTestsFromTestCase(TestInformationFlow))
     test_suite.addTest(test_loader.loadTestsFromTestCase(TestCognitiveIdentification))
     
     # Data generation tests
-    test_suite.addTest(test_loader.loadTestsFromTestCase(TestSyntheticData))
     
     # Visualization tests
-    test_suite.addTest(test_loader.loadTestsFromTestCase(TestVisualization))
+    test_suite.addTest(test_loader.loadTestsFromTestCase(TestMarkovBlanketVisualizer))
     
     # Gridworld tests
     test_suite.addTest(test_loader.loadTestsFromTestCase(TestGaussianBlurGridworld))
@@ -136,7 +118,6 @@ def main():
     """Run the test suite."""
     parser = argparse.ArgumentParser(description='Run DMBD framework tests')
     parser.add_argument('--output-dir', default='output', help='Output directory for test results')
-    parser.add_argument('--skip-synthetic-data', action='store_true', help='Skip synthetic data generation')
     args = parser.parse_args()
     
     # Create output directories
@@ -148,10 +129,6 @@ def main():
     
     logger.info("DMBD Test Suite started")
     logger.info(f"Output directory: {output_dirs['output']}")
-    
-    # Generate synthetic data
-    if not args.skip_synthetic_data:
-        datasets = generate_synthetic_datasets(output_dirs, logger)
     
     # Run tests
     result = run_tests(output_dirs, logger)

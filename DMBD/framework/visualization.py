@@ -72,9 +72,11 @@ class MarkovBlanketVisualizer:
         if node_labels is None:
             node_labels = {i: f"X{i}" for i in classifications['internal'] + classifications['blanket'] + classifications['external'][:5]}  # Limit external nodes for clarity
         
-        # Add nodes to graph
-        for cat, nodes in classifications.items():
-            for node in nodes:
+        # Add nodes to graph (only structural categories; parents/children/spouses
+        # keys are bookkeeping and have no color mapping)
+        category_keys = ('internal', 'blanket', 'external')
+        for cat in category_keys:
+            for node in classifications.get(cat, []):
                 if node in node_labels:
                     G.add_node(node, label=node_labels[node], category=cat)
         
@@ -386,8 +388,11 @@ class MarkovBlanketVisualizer:
             fig = ax.figure
         
         # Create heatmap
+        # cbar=False: a default colorbar adds an extra Axes to the host
+        # figure, which breaks callers that place this plot on a subplot of a
+        # multi-panel figure and count the resulting axes.
         sns.heatmap(mi_matrix, annot=True, cmap='viridis', xticklabels=matrix_labels, 
-                   yticklabels=matrix_labels, ax=ax)
+                   yticklabels=matrix_labels, ax=ax, cbar=False)
         
         ax.set_title(title)
         
