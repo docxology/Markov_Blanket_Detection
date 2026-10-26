@@ -51,15 +51,15 @@ fi
 echo -e "${YELLOW}Installing required packages...${NC}"
 
 # Core packages
-pip3 install numpy pandas matplotlib tqdm
+pip3 install numpy pandas scipy scikit-learn matplotlib tqdm
 
-# PyTorch (CPU-only version by default)
+# PyTorch (CPU-only version by default); torchvision/torchaudio are not used
 if [[ "$1" == "--cuda" ]] || [[ "$2" == "--cuda" ]]; then
     echo -e "${YELLOW}Installing PyTorch with CUDA support...${NC}"
-    pip3 install torch torchvision torchaudio
+    pip3 install torch
 else
     echo -e "${YELLOW}Installing PyTorch (CPU-only)...${NC}"
-    pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+    pip3 install torch --index-url https://download.pytorch.org/whl/cpu
 fi
 
 # Additional packages for visualization

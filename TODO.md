@@ -43,3 +43,26 @@ marked open.
       (test_cognitive_identification.py). All are expected-set/threshold
       mismatches in detection output, i.e. source/test logic, out of scope
       for a doc pass. Full log: `DMBD/output/test_results.txt`.
+
+## Maintenance pass 2026-10-25
+
+- [x] Documented install path was broken: `pip install -e .` from `DMBD/`
+      died in `setup.py` with `FileNotFoundError: README.md`, and
+      `pyproject.toml` pointed `readme` at the same missing file. `setup.py`
+      is now a shim over PEP 621 metadata in `pyproject.toml`; editable
+      install re-verified.
+- [x] Removed tracked build artifacts (`DMBD/**/__pycache__/*.pyc`,
+      `DMBD/dmbd.egg-info/`); added `*.egg-info/` to `DMBD/.gitignore`.
+- [x] Corrected package metadata: URLs pointed at `github.com/openmanus/dmbd`,
+      license claimed MIT (repo is CC BY-NC-SA 4.0), author was an unrelated
+      project's team, and the direct `scipy` import was undeclared.
+      Dependency floors raised to current supported releases.
+- [ ] Open: gridworld animation tests error when `ffmpeg` is absent from
+      `PATH` — matplotlib falls back to `PillowWriter` and cannot write
+      `.mp4`. Re-run with ffmpeg installed to confirm; the 4 logic failures
+      above are unchanged (41 tests, 4 failures, 2 ffmpeg errors on
+      2026-10-25).
+- [ ] Open: `DMBD/src/analyze_results.py` is referenced nowhere (no imports,
+      no docs, no shell wrapper) and imports undeclared `cv2` + `PIL`; its
+      purpose overlaps the documented `DMBD/analyze_partition.py`. Decide:
+      declare the extra deps, or drop the script as superseded.

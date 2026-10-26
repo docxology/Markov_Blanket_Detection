@@ -18,7 +18,7 @@ All implementation lives in the `DMBD/` package directory:
 | `DMBD/run_tests.py`, `DMBD/run_dmbd_tests.sh` | Test entry points |
 | `DMBD/run_gridworld_*.py|.sh`, `DMBD/README_gridworld.md` | Gridworld analysis (moving Gaussian blur demo) and its report generator |
 | `DMBD/generate_report.py`, `DMBD/analyze_partition.py`, `DMBD/direct_visualization.py` | Reporting and visualization utilities |
-| `DMBD/pyproject.toml`, `DMBD/setup.py`, `DMBD/install_dependencies.sh` | Packaging (project name `dmbd`, deps: torch, numpy, pandas, scikit-learn, matplotlib, tqdm, networkx, seaborn) |
+| `DMBD/pyproject.toml`, `DMBD/setup.py`, `DMBD/install_dependencies.sh` | Packaging (project name `dmbd`; PEP 621 metadata in `pyproject.toml`, `setup.py` is a shim; deps: torch, numpy, pandas, scipy, scikit-learn, matplotlib, tqdm, networkx, seaborn) |
 | `DMBD/output/` | Generated analysis outputs |
 
 ## How to run/test

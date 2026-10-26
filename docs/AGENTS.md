@@ -6,4 +6,5 @@
 - Factual claims added here must trace to `DMBD/` files (README, pyproject,
   framework modules). If unverifiable, write "Not documented in repo — needs
   owner input" instead of inventing content.
-- `DMBD/dmbd.egg-info/` and `__pycache__/` are build artifacts; ignore them.
+- `__pycache__/` and `*.egg-info/` are build artifacts (gitignored, not
+  tracked); ignore them.

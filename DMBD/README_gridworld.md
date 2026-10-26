@@ -71,12 +71,14 @@ python3 generate_gridworld_report.py --analysis-dir output/analysis_only --outpu
 
 ## Requirements
 
-- Python 3.6+
+- Python 3.8+ (same floor as the core framework — see `pyproject.toml`)
 - NumPy
 - Pandas
 - PyTorch
 - Matplotlib
 - tqdm
+- ffmpeg on `PATH` for the `.mp4` animations (without it matplotlib falls
+  back to Pillow and saving fails with `unknown file extension: .mp4`)
 
 ## Output
 

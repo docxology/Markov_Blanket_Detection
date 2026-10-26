@@ -2,8 +2,6 @@
 
 A comprehensive framework for detecting and analyzing Markov blankets in dynamic systems using probabilistic techniques based on PyTorch.
 
-## Overview
-
 ## Status (as of 2026-08-31, verified by `git status -sb` / `ls DMBD/`)
 
 - Branch: `main` (remote: `github.com/docxology/Markov_Blanket_Detection`).
@@ -137,7 +135,7 @@ flowchart TD
 ### Prerequisites
 
 - Python 3.8+
-- PyTorch 1.12+ (plus numpy, pandas, scikit-learn, matplotlib, tqdm,
+- PyTorch 2.0+ (plus numpy, pandas, scipy, scikit-learn, matplotlib, tqdm,
   networkx, seaborn — see `DMBD/pyproject.toml`)
 
 ### From source (verified path)
@@ -155,10 +153,13 @@ pip install -e .
 
 ## Quick Start
 
+Run these snippets from the `DMBD/` directory (or after the editable install
+above; the package exposes the top-level `src` and `framework` packages).
+
 ```python
 import pandas as pd
 import numpy as np
-from dmbd.src.dmbd_analyzer import DMBDAnalyzer
+from src.dmbd_analyzer import DMBDAnalyzer
 
 # Load data
 data = pd.read_csv('your_data.csv')
@@ -189,7 +190,7 @@ analyzer.visualize_cognitive_structures(target_idx)
 The framework includes tools for generating synthetic data for testing:
 
 ```python
-from dmbd.src.examples import generate_synthetic_data, basic_markov_blanket_example
+from src.examples import generate_synthetic_data, basic_markov_blanket_example
 
 # Generate synthetic data
 data = generate_synthetic_data(
@@ -432,6 +433,9 @@ installed; otherwise you get `ModuleNotFoundError: pandas`):
 python DMBD/run_tests.py          # full suite, writes logs to DMBD/output/
 bash DMBD/run_dmbd_tests.sh       # shell wrapper
 ```
+
+The gridworld animation tests additionally need `ffmpeg` on `PATH`; without
+it matplotlib falls back to Pillow and `.mp4` saving fails.
 
 Or directly, from inside `DMBD/`:
 
