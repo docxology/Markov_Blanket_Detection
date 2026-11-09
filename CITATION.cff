@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+type: software
+title: "Markov_Blanket_Detection"
+authors:
+  - family-names: Friedman
+    given-names: Daniel Ari
+    orcid: "https://orcid.org/0000-0001-6232-9096"
+repository-code: "https://github.com/docxology/Markov_Blanket_Detection"
+abstract: "DMBD — PyTorch implementation of dynamic Markov blanket detection for time-series data, finding how parent/child/spouse neighborhoods and sensory, active, and internal state partitions shift over time via conditional independence tests, temporal windowing, and information-flow analysis. Follows Beck & Ramstead (2025)."
