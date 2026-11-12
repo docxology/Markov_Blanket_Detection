@@ -1,5 +1,13 @@
 # Dynamic Markov Blanket Detection (DMBD)
 
+<p align="center">
+  <a href="LICENSE.md"><img alt="License: CC BY-NC 4.0" src="https://img.shields.io/badge/license-CC%20BY--NC%204.0-blue"></a>
+</p>
+
+<p align="center">
+  <img src="DMBD/output/final_analysis/analysis/markov_partition_evolution.gif" alt="Animation over 30 time steps. Left: a Gaussian blob drifts across a 30 by 30 grid. Right: the inferred Markov blanket partition follows it, with internal states (purple) wrapped by blanket states (yellow) inside external states (cyan)." width="760">
+</p>
+
 A comprehensive framework for detecting and analyzing Markov blankets in dynamic systems using probabilistic techniques based on PyTorch.
 
 ## Status (as of 2026-08-31, verified by `git status -sb` / `ls DMBD/`)
