@@ -1,7 +1,7 @@
 # Dynamic Markov Blanket Detection (DMBD)
 
 <p align="center">
-  <a href="LICENSE.md"><img alt="License: CC BY-NC 4.0" src="https://img.shields.io/badge/license-CC%20BY--NC%204.0-blue"></a>
+  <a href="LICENSE.md"><img alt="License: CC BY-NC-SA 4.0" src="https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-blue"></a>
 </p>
 
 <p align="center">
