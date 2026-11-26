@@ -1,0 +1,25 @@
+paper:
+  title: "Inspecting Statistical Blankets in a Synthetic Network"
+  subtitle: "A fixture study of DMBD membership, orientation, and lag assembly"
+
+authors:
+  - name: "Daniel Ari Friedman"
+    orcid: "0000-0001-6232-9096"
+
+publication:
+  repository_url: "https://github.com/docxology/Markov_Blanket_Detection"
+  release_status: "unreleased"
+
+metadata:
+  language: "en"
+  license: "CC-BY-NC-SA-4.0"
+
+manuscript_dir: "docs/manuscript"
+
+render:
+  formats:
+    pdf: true
+    html: true
+    slides: false
+    docx: false
+    epub: false

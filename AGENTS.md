@@ -35,9 +35,8 @@ Verified against disk 2026-08-31 (`ls`, repo `README.md`, `git remote -v`).
 ## Agent quick reference
 
 - **Backlog (canonical):** `TODO.md` — add findings there, one line each.
-- **Run tests:** `python DMBD/run_tests.py` from repo root (requires
-  `DMBD/.venv` or system torch/pandas; see README "Running Tests").
-- **Gridworld demo:** `bash DMBD/run_gridworld_dmbd.sh` (see
-  `DMBD/README_gridworld.md`).
+- **Run tests:** see the [setup and verification guide](docs/USAGE.md).
+- **Gridworld demo:** see the [gridworld guide](docs/GRIDWORLD.md).
+- **Manuscript:** see the [canonical source and build guide](docs/manuscript/README.md).
 - **Doc rules:** factual claims must trace to a file on disk; if
   unverifiable, write "Not documented in repo — needs owner input".
